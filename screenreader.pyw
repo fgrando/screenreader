@@ -95,7 +95,7 @@ class MainWindow(QWidget):
         self.screenshot_button = QPushButton("Take Screenshot")
         self.screenshot_button.clicked.connect(self.take_screenshot)
 
-        self.cleanup_button = QPushButton("Cleanup old PNGs")
+        self.cleanup_button = QPushButton("Cleanup PNGs")
         self.cleanup_button.clicked.connect(self.cleanup_pngs)
 
         # Add widgets to layout
@@ -115,6 +115,7 @@ class MainWindow(QWidget):
         layout.addWidget(text_area)
         text_popup.setLayout(layout)
         text_popup.show()
+        # text_popup.keyPressEvent = lambda event: text_popup.close() if event.key() == Qt.Key_Escape else None
 
     def take_screenshot(self):
         timestamp = time.strftime("%Y%m%d_%H%M%S")
